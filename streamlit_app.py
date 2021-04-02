@@ -8,8 +8,8 @@ from SessionState import get
 st.set_page_config(layout="wide")
 session_state = get(password='')
 
-def main():
 
+def main():
 
     c1, c2 = st.beta_columns(2)
     with c2:
@@ -40,13 +40,10 @@ def main():
 
     st.write(df2)
 
-
     numbers2 = list((df['owner'][::-1] ==
-                    '14Rqw67Er4T4mDitRR5hkvDbefXUhVQGiaVV4yzgSF3sVtu6PfU').cumsum())
-
+                     '14Rqw67Er4T4mDitRR5hkvDbefXUhVQGiaVV4yzgSF3sVtu6PfU').cumsum())
 
     numbers = list(range(1, len(df['timestamp_added'])+1))
-
 
     df3 = pd.DataFrame({'Total': numbers, 'Galiot': numbers2}, index=pd.to_datetime(
         list(df['timestamp_added'][::-1])))
@@ -80,19 +77,16 @@ def main():
     )
     # st.area_chart(df3)
 
-
     #st.latex(r''' e^{i\pi} + 1 = 0 ''')
 
 
 if session_state.password != 'helium':
-    pwd = st.text_input("Password for Internal Galiot Dashboard:", value="", type="password")
+    pwd = st.text_input(
+        "Password for Internal Galiot Dashboard:", value="", type="password")
     session_state.password = pwd
     if session_state.password == 'helium':
         main()
-    else:
+    elif:
         st.error("the password you entered is incorrect")
 else:
     main()
-
-
-
