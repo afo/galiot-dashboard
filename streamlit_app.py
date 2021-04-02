@@ -80,13 +80,16 @@ def main():
     #st.latex(r''' e^{i\pi} + 1 = 0 ''')
 
 
+pwd = ''
 if session_state.password != 'helium':
     pwd = st.text_input(
         "Password for Internal Galiot Dashboard:", value="", type="password")
     session_state.password = pwd
     if session_state.password == 'helium':
         main()
-    elif:
-        st.error("the password you entered is incorrect")
+    if pwd == '':
+        st.warning('Input password')
+    else:
+        st.error("The password you entered is incorrect")
 else:
     main()
