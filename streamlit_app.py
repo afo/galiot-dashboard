@@ -28,7 +28,7 @@ def main():
 
     st.markdown('All hotspots in Sweden')
 
-    df = pd.read_csv('swe_hotspots-april2-2021.csv')
+    df = pd.read_csv('swe_hotspots-april26-2021.csv')
     df[['timestamp_added', 'owner', 'name', 'short_street',
         'short_state']]  # <-- Draw the dataframe
 
